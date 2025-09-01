@@ -1,0 +1,126 @@
+{
+  "common": {
+    "login": "உள்நுழைய",
+    "signup": "பதிவு செய்ய",
+    "logout": "வெளியேறு",
+    "search": "தேடு",
+    "filter": "வடிகட்டு",
+    "save": "சேமி",
+    "cancel": "ரத்து செய்",
+    "submit": "சமர்ப்பி",
+    "edit": "திருத்து",
+    "delete": "நீக்கு",
+    "view": "பார்",
+    "contact": "தொடர்பு",
+    "available": "கிடைக்கும்",
+    "unavailable": "கிடைக்காது",
+    "verified": "சரிபார்க்கப்பட்டது",
+    "unverified": "சரிபார்க்கப்படவில்லை",
+    "loading": "ஏற்றுகிறது...",
+    "error": "பிழை",
+    "success": "வெற்றி"
+  },
+  "nav": {
+    "home": "முகப்பு",
+    "dashboard": "டாஷ்போர்டு",
+    "profile": "சுயவிவரம்",
+    "drivers": "ஓட்டுநர்கள்",
+    "companies": "நிறுவனங்கள்",
+    "admin": "நிர்வாகி",
+    "settings": "அமைப்புகள்"
+  },
+  "auth": {
+    "welcomeBack": "மீண்டும் வரவேற்கிறோம்",
+    "createAccount": "கணக்கு உருவாக்கு",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "confirmPassword": "கடவுச்சொல்லை உறுதிப்படுத்து",
+    "fullName": "முழு பெயர்",
+    "companyName": "நிறுவன பெயர்",
+    "forgotPassword": "கடவுச்சொல் மறந்துவிட்டதா?",
+    "dontHaveAccount": "கணக்கு இல்லையா?",
+    "alreadyHaveAccount": "ஏற்கனவே கணக்கு உள்ளதா?",
+    "loginAsDriver": "ஓட்டுநராக உள்நுழைய",
+    "loginAsCompany": "நிறுவனமாக உள்நுழைய",
+    "loginAsAdmin": "நிர்வாகியாக உள்நுழைய"
+  },
+  "driver": {
+    "profile": "ஓட்டுநர் சுயவிவரம்",
+    "personalInfo": "தனிப்பட்ட தகவல்",
+    "licenseInfo": "உரிமம் தகவல்",
+    "experience": "அனுபவம்",
+    "vehicleTypes": "வாகன வகைகள்",
+    "documents": "ஆவணங்கள்",
+    "availability": "கிடைக்கும் தன்மை",
+    "ratings": "மதிப்பீடுகள் மற்றும் விமர்சனங்கள்",
+    "name": "முழு பெயர்",
+    "age": "வயது",
+    "phone": "தொலைபேசி எண்",
+    "city": "நகரம்",
+    "state": "மாநிலம்",
+    "licenseNumber": "உரிமம் எண்",
+    "licenseExpiry": "உரிமம் காலாவதி",
+    "yearsExperience": "வருட அனுபவம்",
+    "uploadDL": "ஓட்டுநர் உரிமம் பதிவேற்று",
+    "uploadAadhaar": "ஆதார் பதிவேற்று",
+    "uploadPAN": "பான் கார்டு பதிவேற்று",
+    "uploadPhoto": "சுயவிவர புகைப்படம் பதிவேற்று",
+    "toggleAvailability": "கிடைக்கும் தன்மையை மாற்று",
+    "currentlyAvailable": "தற்போது கிடைக்கும்",
+    "currentlyUnavailable": "தற்போது கிடைக்காது"
+  },
+  "company": {
+    "searchDrivers": "ஓட்டுநர்களைத் தேடு",
+    "filterDrivers": "ஓட்டுநர்களை வடிகட்டு",
+    "subscriptionPlan": "சந்தா திட்டம்",
+    "contactsRemaining": "மீதமுள்ள தொடர்புகள்",
+    "upgradeSubscription": "சந்தாவை மேம்படுத்து",
+    "location": "இடம்",
+    "experienceLevel": "அனுபவ நிலை",
+    "verifiedOnly": "சரிபார்க்கப்பட்டவை மட்டும்",
+    "availableOnly": "கிடைக்கும் மட்டும்",
+    "contactDriver": "ஓட்டுநரைத் தொடர்பு கொள்ளுங்கள்",
+    "viewProfile": "சுயவிவரத்தைப் பார்",
+    "leaveReview": "விமர்சனம் விடுங்கள்",
+    "subscriptionTiers": {
+      "free": "இலவசம்",
+      "pro": "ப்ரோ",
+      "premium": "பிரீமியம்"
+    }
+  },
+  "admin": {
+    "dashboard": "நிர்வாகி டாஷ்போர்டு",
+    "totalDrivers": "மொத்த ஓட்டுநர்கள்",
+    "totalCompanies": "மொத்த நிறுவனங்கள்",
+    "pendingVerifications": "நிலுவையில் உள்ள சரிபார்ப்புகள்",
+    "activeSubscriptions": "செயலில் உள்ள சந்தாக்கள்",
+    "verifyDocuments": "ஆவணங்களைச் சரிபார்",
+    "moderateReviews": "விமர்சனங்களை நிர்வகி",
+    "manageSubscriptions": "சந்தாக்களை நிர்வகி",
+    "approve": "அங்கீகரி",
+    "reject": "நிராகரி",
+    "pending": "நிலுவையில்"
+  },
+  "subscription": {
+    "plans": {
+      "free": {
+        "name": "இலவசம்",
+        "price": "₹0",
+        "contacts": "10 தொடர்புகள்/மாதம்",
+        "features": ["அடிப்படை தேடல்", "வரையறுக்கப்பட்ட வடிகட்டிகள்", "மின்னஞ்சல் ஆதரவு"]
+      },
+      "pro": {
+        "name": "ப்ரோ",
+        "price": "₹999",
+        "contacts": "50 தொடர்புகள்/மாதம்",
+        "features": ["மேம்பட்ட தேடல்", "அனைத்து வடிகட்டிகள்", "முன்னுரிமை ஆதரவு", "வாட்ஸ்அப் தொடர்பு"]
+      },
+      "premium": {
+        "name": "பிரீமியம்",
+        "price": "₹2999",
+        "contacts": "300 தொடர்புகள்/மாதம்",
+        "features": ["வரம்பற்ற தேடல்", "அனைத்து வடிகட்டிகள்", "24/7 ஆதரவு", "வாட்ஸ்அப் தொடர்பு", "நேரடி அரட்டை", "தானியங்கி பொருத்தம்"]
+      }
+    }
+  }
+}

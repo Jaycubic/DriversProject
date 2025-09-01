@@ -1,0 +1,126 @@
+{
+  "common": {
+    "login": "लॉगिन",
+    "signup": "साइन अप",
+    "logout": "लॉगआउट",
+    "search": "शोधा",
+    "filter": "फिल्टर",
+    "save": "सेव्ह करा",
+    "cancel": "रद्द करा",
+    "submit": "सबमिट करा",
+    "edit": "संपादित करा",
+    "delete": "हटवा",
+    "view": "पहा",
+    "contact": "संपर्क",
+    "available": "उपलब्ध",
+    "unavailable": "अनुपलब्ध",
+    "verified": "सत्यापित",
+    "unverified": "असत्यापित",
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी",
+    "success": "यश"
+  },
+  "nav": {
+    "home": "होम",
+    "dashboard": "डॅशबोर्ड",
+    "profile": "प्रोफाइल",
+    "drivers": "ड्रायव्हर",
+    "companies": "कंपन्या",
+    "admin": "अॅडमिन",
+    "settings": "सेटिंग्ज"
+  },
+  "auth": {
+    "welcomeBack": "परत स्वागत",
+    "createAccount": "खाते तयार करा",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्डची पुष्टी करा",
+    "fullName": "पूर्ण नाव",
+    "companyName": "कंपनीचे नाव",
+    "forgotPassword": "पासवर्ड विसरलात?",
+    "dontHaveAccount": "खाते नाही?",
+    "alreadyHaveAccount": "आधीच खाते आहे?",
+    "loginAsDriver": "ड्रायव्हर म्हणून लॉगिन",
+    "loginAsCompany": "कंपनी म्हणून लॉगिन",
+    "loginAsAdmin": "अॅडमिन म्हणून लॉगिन"
+  },
+  "driver": {
+    "profile": "ड्रायव्हर प्रोफाइल",
+    "personalInfo": "वैयक्तिक माहिती",
+    "licenseInfo": "लायसन्स माहिती",
+    "experience": "अनुभव",
+    "vehicleTypes": "वाहन प्रकार",
+    "documents": "कागदपत्रे",
+    "availability": "उपलब्धता",
+    "ratings": "रेटिंग आणि पुनरावलोकने",
+    "name": "पूर्ण नाव",
+    "age": "वय",
+    "phone": "फोन नंबर",
+    "city": "शहर",
+    "state": "राज्य",
+    "licenseNumber": "लायसन्स नंबर",
+    "licenseExpiry": "लायसन्स समाप्ती",
+    "yearsExperience": "वर्षांचा अनुभव",
+    "uploadDL": "ड्रायव्हिंग लायसन्स अपलोड करा",
+    "uploadAadhaar": "आधार अपलोड करा",
+    "uploadPAN": "पॅन कार्ड अपलोड करा",
+    "uploadPhoto": "प्रोफाइल फोटो अपलोड करा",
+    "toggleAvailability": "उपलब्धता टॉगल करा",
+    "currentlyAvailable": "सध्या उपलब्ध",
+    "currentlyUnavailable": "सध्या अनुपलब्ध"
+  },
+  "company": {
+    "searchDrivers": "ड्रायव्हर शोधा",
+    "filterDrivers": "ड्रायव्हर फिल्टर करा",
+    "subscriptionPlan": "सबस्क्रिप्शन प्लॅन",
+    "contactsRemaining": "उर्वरित संपर्क",
+    "upgradeSubscription": "सबस्क्रिप्शन अपग्रेड करा",
+    "location": "स्थान",
+    "experienceLevel": "अनुभव पातळी",
+    "verifiedOnly": "फक्त सत्यापित",
+    "availableOnly": "फक्त उपलब्ध",
+    "contactDriver": "ड्रायव्हरशी संपर्क साधा",
+    "viewProfile": "प्रोफाइल पहा",
+    "leaveReview": "पुनरावलोकन द्या",
+    "subscriptionTiers": {
+      "free": "मोफत",
+      "pro": "प्रो",
+      "premium": "प्रीमियम"
+    }
+  },
+  "admin": {
+    "dashboard": "अॅडमिन डॅशबोर्ड",
+    "totalDrivers": "एकूण ड्रायव्हर",
+    "totalCompanies": "एकूण कंपन्या",
+    "pendingVerifications": "प्रलंबित सत्यापने",
+    "activeSubscriptions": "सक्रिय सबस्क्रिप्शन",
+    "verifyDocuments": "कागदपत्रे सत्यापित करा",
+    "moderateReviews": "पुनरावलोकने नियंत्रित करा",
+    "manageSubscriptions": "सबस्क्रिप्शन व्यवस्थापित करा",
+    "approve": "मंजूर करा",
+    "reject": "नाकारा",
+    "pending": "प्रलंबित"
+  },
+  "subscription": {
+    "plans": {
+      "free": {
+        "name": "मोफत",
+        "price": "₹0",
+        "contacts": "10 संपर्क/महिना",
+        "features": ["मूलभूत शोध", "मर्यादित फिल्टर", "ईमेल सपोर्ट"]
+      },
+      "pro": {
+        "name": "प्रो",
+        "price": "₹999",
+        "contacts": "50 संपर्क/महिना",
+        "features": ["प्रगत शोध", "सर्व फिल्टर", "प्राधान्य सपोर्ट", "व्हाट्सअॅप संपर्क"]
+      },
+      "premium": {
+        "name": "प्रीमियम",
+        "price": "₹2999",
+        "contacts": "300 संपर्क/महिना",
+        "features": ["अमर्यादित शोध", "सर्व फिल्टर", "24/7 सपोर्ट", "व्हाट्सअॅप संपर्क", "थेट चॅट", "ऑटो-मॅचिंग"]
+      }
+    }
+  }
+}

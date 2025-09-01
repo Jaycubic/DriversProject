@@ -1,0 +1,98 @@
+$ next dev --turbopack
+ ⚠ Port 3000 is in use by an unknown process, using available port 3002 instead.
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://169.254.0.21:3002
+
+ ✓ Starting...
+ ✓ Ready in 1976ms
+ ⚠ Webpack is configured while Turbopack is not, which may cause problems.
+ ⚠ See instructions if you need to configure Turbopack:
+  https://nextjs.org/docs/app/api-reference/next-config-js/turbopack
+
+ ○ Compiling / ...
+ ✓ Compiled / in 7s
+ GET / 200 in 18965ms
+ GET / 200 in 13519ms
+ ○ Compiling /favicon.ico ...
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 1168ms
+ ✓ Compiled /favicon.ico in 1219ms
+ GET /locales/en-US/translation.json 404 in 1485ms
+ ⚠ Cross origin request detected from driver-connect-2.lindy.site to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /locales/en-US/translation.json 404 in 351ms
+ ○ Compiling /auth/login ...
+ ✓ Compiled /auth/login in 746ms
+ GET /auth/login 200 in 855ms
+ ○ Compiling /company ...
+ ✓ Compiled /company in 669ms
+ GET /company 200 in 774ms
+ ○ Compiling /company/drivers ...
+ ✓ Compiled /company/drivers in 800ms
+ GET /company/drivers 200 in 919ms
+ GET /favicon.ico 200 in 302ms
+ GET / 200 in 247ms
+ GET /locales/en-US/translation.json 404 in 176ms
+ GET /company/drivers 200 in 580ms
+ GET /locales/en-US/translation.json 404 in 438ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 612ms
+ GET /favicon.ico 200 in 356ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 354ms
+ GET /company 200 in 468ms
+ GET /locales/en-US/translation.json 404 in 264ms
+ ✓ Compiled /company in 110ms
+ GET /company 200 in 408ms
+ ✓ Compiled in 0ms
+ GET /company 200 in 1048ms
+ ✓ Compiled / in 195ms
+ GET /company 200 in 988ms
+ GET /company 200 in 1201ms
+ GET / 200 in 1606ms
+ GET / 200 in 1701ms
+ GET / 200 in 1933ms
+ GET /company 200 in 1753ms
+ GET / 200 in 596ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 401ms
+ ✓ Compiled in 817ms
+ GET /company 200 in 773ms
+ GET /company 200 in 939ms
+ GET / 200 in 1135ms
+ GET / 200 in 1001ms
+ GET / 200 in 1000ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 319ms
+ GET /company 200 in 204ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 344ms
+ ✓ Compiled /company/drivers in 40ms
+ GET /company/drivers 200 in 227ms
+ GET /favicon.ico 200 in 287ms
+ ✓ Compiled in 319ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /company/drivers 200 in 808ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 408ms
+ ✓ Compiled in 325ms
+ GET / 200 in 245ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 268ms
+ ○ Compiling /auth/signup ...
+ ✓ Compiled /auth/signup in 707ms
+ GET /auth/signup 200 in 793ms
+ GET / 200 in 109ms
+ GET / 200 in 106ms
+ ✓ Compiled /auth/login in 51ms
+ GET /auth/login 200 in 315ms
+ GET /auth/login 200 in 98ms
+ ○ Compiling /driver ...
+ ✓ Compiled /driver in 730ms
+ GET /driver 200 in 826ms
+ ✓ Compiled /_not-found/page in 40ms
+ GET /driver/profile 404 in 228ms
+ GET /driver/profile 404 in 460ms
+ GET /driver 200 in 285ms
+ GET /driver 200 in 96ms
+ GET /driver 200 in 228ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 263ms
+ GET /auth/login 200 in 89ms
+ GET /driver 200 in 105ms
+ GET /driver 200 in 252ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 291ms
+ GET /driver 200 in 309ms
+ GET /favicon.ico?favicon.bf3c9292.ico 200 in 278ms
