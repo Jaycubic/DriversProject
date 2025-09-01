@@ -1,1 +1,9 @@
-{}
+{
+  "[project]/components/common/LanguageSwitcher.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/components/common/LanguageSwitcher.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_f8257a15._.js",
+      "static/chunks/components_common_LanguageSwitcher_tsx_3154ae75._.js"
+    ]
+  }
+}

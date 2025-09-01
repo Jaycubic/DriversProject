@@ -18,7 +18,7 @@ const languages = [
   { code: 'ta', name: 'தமிழ்', flag: '🇮🇳' },
 ];
 
-export const LanguageSwitcher: React.FC = () => {
+const LanguageSwitcherComponent: React.FC = () => {
   const { i18n } = useTranslation();
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -51,3 +51,5 @@ export const LanguageSwitcher: React.FC = () => {
     </DropdownMenu>
   );
 };
+
+export const LanguageSwitcher = LanguageSwitcherComponent;

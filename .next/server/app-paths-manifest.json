@@ -1,5 +1,5 @@
 {
-  "/api/drivers/route": "app/api/drivers/route.js",
-  "/company/drivers/page": "app/company/drivers/page.js",
+  "/driver/page": "app/driver/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }

@@ -14,10 +14,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
-import { LanguageSwitcher } from '@/components/common/LanguageSwitcher';
 import { ModeToggle } from '@/components/common/ModeToggle';
 import { Truck, User, LogOut, Settings, Crown } from 'lucide-react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+// Dynamically import LanguageSwitcher with no SSR to prevent hydration mismatch
+const LanguageSwitcher = dynamic(
+  () => import('@/components/common/LanguageSwitcher').then(mod => ({ default: mod.LanguageSwitcher })),
+  { ssr: false }
+);
 
 export const Header: React.FC = () => {
   const { t } = useTranslation();
