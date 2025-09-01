@@ -20,7 +20,8 @@ import {
   Search,
   Truck,
   Award,
-  Calendar
+  Calendar,
+  Loader2
 } from 'lucide-react';
 
 export default function CompanyDriverSearch() {
@@ -31,124 +32,31 @@ export default function CompanyDriverSearch() {
   const [stateFilter, setStateFilter] = useState('all');
   const [vehicleTypeFilter, setVehicleTypeFilter] = useState('all');
   const [experienceFilter, setExperienceFilter] = useState('all');
+  const [drivers, setDrivers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Mock drivers data
-  const mockDrivers = [
-    {
-      id: '1',
-      user: {
-        name: 'Rajesh Kumar',
-        email: 'rajesh@driver.com',
-        phone: '+91 9876543210'
-      },
-      experience: 12,
-      location: 'Mumbai, Maharashtra',
-      state: 'Maharashtra',
-      city: 'Mumbai',
-      rating: 4.8,
-      totalReviews: 45,
-      totalJobs: 156,
-      completedJobs: 152,
-      isAvailable: true,
-      vehicleTypes: ['Bus', 'Cargo Truck', 'Heavy Vehicle'],
-      bio: 'Experienced professional driver with 12+ years in transportation. Specialized in long-haul cargo and passenger transport.'
-    },
-    {
-      id: '2',
-      user: {
-        name: 'Suresh Patel',
-        email: 'suresh@driver.com',
-        phone: '+91 9876543211'
-      },
-      experience: 8,
-      location: 'Pune, Maharashtra',
-      state: 'Maharashtra',
-      city: 'Pune',
-      rating: 4.6,
-      totalReviews: 32,
-      totalJobs: 89,
-      completedJobs: 85,
-      isAvailable: true,
-      vehicleTypes: ['Cargo Truck', 'Delivery Van'],
-      bio: 'Reliable driver with excellent track record in cargo transportation across Western India.'
-    },
-    {
-      id: '3',
-      user: {
-        name: 'Amit Singh',
-        email: 'amit@driver.com',
-        phone: '+91 9876543212'
-      },
-      experience: 15,
-      location: 'Delhi',
-      state: 'Delhi',
-      city: 'Delhi',
-      rating: 4.9,
-      totalReviews: 67,
-      totalJobs: 203,
-      completedJobs: 198,
-      isAvailable: true,
-      vehicleTypes: ['Bus', 'Tourist Bus', 'Heavy Vehicle'],
-      bio: 'Senior driver with extensive experience in passenger transport and interstate travel.'
-    },
-    {
-      id: '4',
-      user: {
-        name: 'Ravi Sharma',
-        email: 'ravi@driver.com',
-        phone: '+91 9876543213'
-      },
-      experience: 6,
-      location: 'Bangalore, Karnataka',
-      state: 'Karnataka',
-      city: 'Bangalore',
-      rating: 4.4,
-      totalReviews: 28,
-      totalJobs: 67,
-      completedJobs: 63,
-      isAvailable: true,
-      vehicleTypes: ['Cargo Truck', 'Container Truck'],
-      bio: 'Dedicated driver specializing in technology sector logistics and container transport.'
-    },
-    {
-      id: '5',
-      user: {
-        name: 'Vikram Reddy',
-        email: 'vikram@driver.com',
-        phone: '+91 9876543214'
-      },
-      experience: 10,
-      location: 'Hyderabad, Telangana',
-      state: 'Telangana',
-      city: 'Hyderabad',
-      rating: 4.7,
-      totalReviews: 41,
-      totalJobs: 124,
-      completedJobs: 119,
-      isAvailable: true,
-      vehicleTypes: ['Bus', 'Cargo Truck'],
-      bio: 'Versatile driver with experience in both passenger and cargo transportation.'
-    },
-    {
-      id: '6',
-      user: {
-        name: 'Manoj Gupta',
-        email: 'manoj@driver.com',
-        phone: '+91 9876543215'
-      },
-      experience: 9,
-      location: 'Chennai, Tamil Nadu',
-      state: 'Tamil Nadu',
-      city: 'Chennai',
-      rating: 4.5,
-      totalReviews: 35,
-      totalJobs: 98,
-      completedJobs: 94,
-      isAvailable: true,
-      vehicleTypes: ['Cargo Truck', 'Heavy Vehicle'],
-      bio: 'Experienced in heavy vehicle operations and industrial cargo transport.'
-    }
-  ];
+  // Fetch drivers from API
+  useEffect(() => {
+    const fetchDrivers = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/drivers');
+        if (!response.ok) {
+          throw new Error('Failed to fetch drivers');
+        }
+        const data = await response.json();
+        setDrivers(data);
+      } catch (err) {
+        console.error('Error fetching drivers:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDrivers();
+  }, []);
 
   const handleContactDriver = async (driverId: string, contactType: string) => {
     if (!canContact) {
@@ -169,7 +77,7 @@ export default function CompanyDriverSearch() {
     }
   };
 
-  const filteredDrivers = mockDrivers.filter(driver => {
+  const filteredDrivers = drivers.filter(driver => {
     const matchesSearch = !searchTerm || 
       driver.user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       driver.location?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -186,14 +94,41 @@ export default function CompanyDriverSearch() {
   });
 
   const getUniqueStates = () => {
-    const states = mockDrivers.map(driver => driver.state).filter(Boolean);
+    const states = drivers.map(driver => driver.state).filter(Boolean);
     return [...new Set(states)];
   };
 
   const getUniqueVehicleTypes = () => {
-    const types = mockDrivers.flatMap(driver => driver.vehicleTypes || []);
+    const types = drivers.flatMap(driver => driver.vehicleTypes || []);
     return [...new Set(types)];
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
+            <p className="text-muted-foreground">Loading drivers...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center py-12">
+          <h3 className="text-lg font-medium mb-2">Error Loading Drivers</h3>
+          <p className="text-muted-foreground mb-4">{error}</p>
+          <Button onClick={() => window.location.reload()}>
+            Try Again
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -318,7 +253,7 @@ export default function CompanyDriverSearch() {
                         </span>
                       </div>
                       <Badge variant="outline" className="bg-green-50 text-green-700">
-                        {t('common.available')}
+                        {driver.isAvailable ? t('common.available') : t('common.busy')}
                       </Badge>
                     </div>
                   </div>
@@ -413,7 +348,7 @@ export default function CompanyDriverSearch() {
         ))}
       </div>
 
-      {filteredDrivers.length === 0 && (
+      {filteredDrivers.length === 0 && !loading && (
         <div className="text-center py-12">
           <Search className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
           <h3 className="text-lg font-medium mb-2">{t('company.drivers.noResults')}</h3>

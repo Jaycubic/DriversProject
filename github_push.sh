@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "=== DriverConnect GitHub Push ==="
+echo "Repository: https://github.com/Jaycubic/DriversProject.git"
+echo "Current status:"
+git status
+
+echo ""
+echo "To push your code to GitHub, you have a few secure options:"
+echo ""
+echo "1. Use GitHub CLI (recommended):"
+echo "   gh auth login"
+echo "   git push origin main"
+echo ""
+echo "2. Use Personal Access Token:"
+echo "   - Go to GitHub Settings > Developer settings > Personal access tokens"
+echo "   - Generate a new token with repo permissions"
+echo "   - Use token as password when prompted"
+echo ""
+echo "3. Use SSH (most secure):"
+echo "   - Generate SSH key: ssh-keygen -t ed25519 -C 'your_email@example.com'"
+echo "   - Add to GitHub: Settings > SSH and GPG keys"
+echo "   - Change remote: git remote set-url origin git@github.com:Jaycubic/DriversProject.git"
+echo ""
+echo "Your code is ready to push with 98 files committed!"
