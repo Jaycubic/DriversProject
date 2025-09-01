@@ -1,0 +1,5 @@
+{
+  "/api/drivers/route": "app/api/drivers/route.js",
+  "/company/drivers/page": "app/company/drivers/page.js",
+  "/page": "app/page.js"
+}
