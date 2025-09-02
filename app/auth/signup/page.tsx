@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Truck, Building, Shield } from 'lucide-react';
+import { Truck, Building } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -22,7 +22,7 @@ export default function SignupPage() {
     password: '',
     confirmPassword: ''
   });
-  const [activeTab, setActiveTab] = useState<UserRole>('driver');
+  const [activeTab, setActiveTab] = useState<'driver' | 'company'>('driver');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export default function SignupPage() {
       return;
     }
     try {
-      await signup(formData.email, formData.password, formData.name, activeTab);
+      await signup(formData.email, formData.password, formData.name, activeTab as UserRole);
       router.push(`/${activeTab}`);
     } catch (error) {
       console.error('Signup failed:', error);
@@ -44,8 +44,7 @@ export default function SignupPage() {
 
   const roleIcons = {
     driver: <Truck className="h-5 w-5" />,
-    company: <Building className="h-5 w-5" />,
-    admin: <Shield className="h-5 w-5" />
+    company: <Building className="h-5 w-5" />
   };
 
   return (
@@ -62,8 +61,8 @@ export default function SignupPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as UserRole)}>
-            <TabsList className="grid w-full grid-cols-3">
+          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as 'driver' | 'company')}>
+            <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="driver" className="flex items-center gap-2">
                 {roleIcons.driver}
                 <span className="hidden sm:inline">Driver</span>
@@ -71,10 +70,6 @@ export default function SignupPage() {
               <TabsTrigger value="company" className="flex items-center gap-2">
                 {roleIcons.company}
                 <span className="hidden sm:inline">Company</span>
-              </TabsTrigger>
-              <TabsTrigger value="admin" className="flex items-center gap-2">
-                {roleIcons.admin}
-                <span className="hidden sm:inline">Admin</span>
               </TabsTrigger>
             </TabsList>
 
