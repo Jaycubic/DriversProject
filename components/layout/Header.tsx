@@ -51,34 +51,65 @@ export const Header: React.FC = () => {
           <span>DriverConnect</span>
         </Link>
 
-        {/* Navigation */}
-        {user && (
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href={`/${user.role}`} className="text-sm font-medium hover:text-primary">
-              {t('nav.dashboard')}
-            </Link>
-            {user.role === 'driver' && (
-              <Link href="/driver/profile" className="text-sm font-medium hover:text-primary">
-                {t('nav.profile')}
+        {/* Main Navigation - Always visible */}
+        <nav className="hidden md:flex items-center gap-6">
+          {user ? (
+            // Logged in user navigation
+            <>
+              <Link href={`/${user.role}`} className="text-sm font-medium hover:text-primary">
+                {t('nav.dashboard')}
               </Link>
-            )}
-            {user.role === 'company' && (
-              <Link href="/company/drivers" className="text-sm font-medium hover:text-primary">
-                {t('nav.drivers')}
-              </Link>
-            )}
-            {user.role === 'admin' && (
-              <>
-                <Link href="/admin/drivers" className="text-sm font-medium hover:text-primary">
+              {user.role === 'driver' && (
+                <Link href="/driver/profile" className="text-sm font-medium hover:text-primary">
+                  {t('nav.profile')}
+                </Link>
+              )}
+              {user.role === 'company' && (
+                <Link href="/company/drivers" className="text-sm font-medium hover:text-primary">
                   {t('nav.drivers')}
                 </Link>
-                <Link href="/admin/companies" className="text-sm font-medium hover:text-primary">
-                  {t('nav.companies')}
-                </Link>
-              </>
-            )}
-          </nav>
-        )}
+              )}
+              {user.role === 'admin' && (
+                <>
+                  <Link href="/admin/drivers" className="text-sm font-medium hover:text-primary">
+                    {t('nav.drivers')}
+                  </Link>
+                  <Link href="/admin/companies" className="text-sm font-medium hover:text-primary">
+                    {t('nav.companies')}
+                  </Link>
+                </>
+              )}
+            </>
+          ) : (
+            // Public navigation for non-logged in users
+            <>
+              <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
+                Home
+              </Link>
+              <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
+                About Us
+              </Link>
+              <Link href="/services" className="text-sm font-medium hover:text-primary transition-colors">
+                Services
+              </Link>
+              <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
+                Contact Us
+              </Link>
+              <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+                Blog
+              </Link>
+              <Link href="/research" className="text-sm font-medium hover:text-primary transition-colors">
+                Research
+              </Link>
+              <Link href="/news" className="text-sm font-medium hover:text-primary transition-colors">
+                News
+              </Link>
+              <Link href="/blacklisted-drivers" className="text-sm font-medium hover:text-primary transition-colors">
+                Blacklisted Drivers
+              </Link>
+            </>
+          )}
+        </nav>
 
         {/* Right side */}
         <div className="flex items-center gap-4">

@@ -2,13 +2,11 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { Eye, Target, Building2, Users, Shield, Globe } from 'lucide-react';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}

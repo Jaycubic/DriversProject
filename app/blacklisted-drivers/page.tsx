@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { Search, AlertTriangle, Shield, Eye, Calendar, MapPin, Phone } from 'lucide-react';
 
 const blacklistedDrivers = [
@@ -96,7 +95,6 @@ export default function BlacklistedDriversPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}

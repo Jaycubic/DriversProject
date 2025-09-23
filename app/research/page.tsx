@@ -4,7 +4,6 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { BarChart3, FileText, Download, Calendar, Users, TrendingUp, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 
@@ -96,7 +95,6 @@ const statistics = [
 export default function ResearchPage() {
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}

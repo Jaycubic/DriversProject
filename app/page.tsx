@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { 
   Truck, 
   Users, 
@@ -23,7 +22,6 @@ import {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-20">

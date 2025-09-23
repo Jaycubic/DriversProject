@@ -4,7 +4,6 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { Calendar, User, ArrowRight, Truck, Shield, Users, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 
@@ -86,7 +85,6 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}

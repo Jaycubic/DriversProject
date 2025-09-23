@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Users } from 'lucide-react';
 
 export default function ContactPage() {
@@ -48,7 +47,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}

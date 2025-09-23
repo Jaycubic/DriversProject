@@ -3,14 +3,12 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MainNavigation } from '@/components/layout/MainNavigation';
 import { MessageCircle, Users, Shield, Clock, MapPin, Phone, CheckCircle, Star } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
-      <MainNavigation />
       
       <div className="container mx-auto px-4 py-12">
         {/* Hero Section */}
