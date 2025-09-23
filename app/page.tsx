@@ -1,330 +1,433 @@
 'use client';
 
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/contexts/AuthContext';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Truck, Users, Shield, Star, ArrowRight, CheckCircle } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { MainNavigation } from '@/components/layout/MainNavigation';
+import { 
+  Truck, 
+  Users, 
+  Shield, 
+  MessageCircle, 
+  CheckCircle, 
+  Star, 
+  ArrowRight,
+  Phone,
+  MapPin,
+  Clock,
+  Award
+} from 'lucide-react';
 
 export default function HomePage() {
-  const { t } = useTranslation();
-  const { user } = useAuth();
-  const router = useRouter();
-
-  // Redirect authenticated users to their dashboard
-  React.useEffect(() => {
-    if (user) {
-      router.push(`/${user.role}`);
-    }
-  }, [user, router]);
-
-  if (user) {
-    return null; // Will redirect
-  }
-
-  const features = [
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Connect with Professional Drivers",
-      description: "Access a network of verified, experienced drivers across India"
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Verified & Trusted",
-      description: "All drivers undergo document verification and background checks"
-    },
-    {
-      icon: <Star className="h-6 w-6" />,
-      title: "Rating & Review System",
-      description: "Make informed decisions with our comprehensive rating system"
-    }
-  ];
-
-  const stats = [
-    { number: "5000+", label: "Registered Drivers" },
-    { number: "500+", label: "Partner Companies" },
-    { number: "50,000+", label: "Successful Connections" },
-    { number: "4.8", label: "Average Rating" }
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
+      <MainNavigation />
+      
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Truck className="h-12 w-12 text-primary" />
-              <span className="text-4xl font-bold">DriverConnect</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Connect with Professional Drivers Across India
+      <section className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-20">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Connect. Drive. <span className="text-primary">Succeed.</span>
             </h1>
-            
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              The leading platform for transportation companies to find verified, experienced drivers 
-              for buses, cargo trucks, and long-haul vehicles.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+              India's leading platform connecting professional drivers with transport companies. 
+              Join thousands of verified drivers and companies transforming the transportation industry.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="text-lg px-8 py-6">
-                <Link href="/auth/signup">
-                  Get Started
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button size="lg" className="text-lg px-8 py-6" asChild>
+                <Link href="/driver/register">
+                  Register as Driver
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              
-              <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6">
-                <Link href="/auth/login">
-                  Sign In
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6" asChild>
+                <Link href="/company/register">
+                  Register Company
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground">
-                  {stat.label}
-                </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">10,000+</div>
+                <div className="text-sm text-muted-foreground">Verified Drivers</div>
               </div>
-            ))}
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">2,500+</div>
+                <div className="text-sm text-muted-foreground">Transport Companies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">50,000+</div>
+                <div className="text-sm text-muted-foreground">Successful Trips</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">98%</div>
+                <div className="text-sm text-muted-foreground">Satisfaction Rate</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose DriverConnect?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We make it easy for companies to find reliable drivers and for drivers to find great opportunities
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                    {feature.icon}
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* For Drivers Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Why Choose DriverConnect?</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive solutions for modern transportation needs with cutting-edge technology and verified networks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>100% Verified Network</CardTitle>
+                <CardDescription>
+                  All drivers and companies undergo thorough background verification and document validation.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Background checks</li>
+                  <li>• Document verification</li>
+                  <li>• Real-time validation</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <MessageCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>Smart Communication</CardTitle>
+                <CardDescription>
+                  Advanced communication platform with multi-language support and real-time tracking.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Real-time messaging</li>
+                  <li>• GPS integration</li>
+                  <li>• Multi-language support</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>Professional Matching</CardTitle>
+                <CardDescription>
+                  AI-powered matching system connecting the right drivers with the right opportunities.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Skill-based matching</li>
+                  <li>• Route optimization</li>
+                  <li>• Performance ratings</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>24/7 Support</CardTitle>
+                <CardDescription>
+                  Round-the-clock customer support and emergency assistance for all users.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Emergency helpline</li>
+                  <li>• Technical support</li>
+                  <li>• Multi-language assistance</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>Pan-India Coverage</CardTitle>
+                <CardDescription>
+                  Extensive network covering all major routes across North, South, East, and West India.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• 28 states coverage</li>
+                  <li>• Major highway routes</li>
+                  <li>• Urban & rural areas</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle>Industry Recognition</CardTitle>
+                <CardDescription>
+                  Award-winning platform recognized by industry leaders and government bodies.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Industry awards</li>
+                  <li>• Government recognition</li>
+                  <li>• Safety certifications</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">How DriverConnect Works</h2>
+            <p className="text-xl text-muted-foreground">
+              Simple, secure, and efficient process for drivers and companies
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* For Drivers */}
             <div>
-              <Badge variant="outline" className="mb-4">For Drivers</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Build Your Professional Profile
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Create a comprehensive profile showcasing your experience, certifications, 
-                and vehicle expertise to attract top transportation companies.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Upload driving license and documents</span>
+              <h3 className="text-2xl font-bold mb-8 text-center">For Drivers</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Register & Verify</h4>
+                    <p className="text-muted-foreground">Complete your profile with documents and get verified within 24 hours.</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Get verified and build trust</span>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Browse Opportunities</h4>
+                    <p className="text-muted-foreground">Access thousands of job opportunities from verified transport companies.</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Receive ratings and reviews</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Access training and certification</span>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Connect & Drive</h4>
+                    <p className="text-muted-foreground">Get matched with suitable jobs and start earning with professional support.</p>
+                  </div>
                 </div>
               </div>
-              
-              <Button size="lg" asChild>
-                <Link href="/auth/signup">
-                  Join as Driver
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
             </div>
-            
-            <div className="relative">
-              <Card className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
-                    RK
-                  </div>
+
+            {/* For Companies */}
+            <div>
+              <h3 className="text-2xl font-bold mb-8 text-center">For Companies</h3>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
                   <div>
-                    <h3 className="font-bold text-lg">Rajesh Kumar</h3>
-                    <p className="text-muted-foreground">Bus & Cargo Driver</p>
-                    <div className="flex items-center gap-2 mt-1">
-                      <div className="flex items-center gap-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="font-medium">4.8</span>
-                      </div>
-                      <Badge variant="outline">Verified</Badge>
-                      <Badge variant="outline" className="bg-green-50 text-green-700">Available</Badge>
-                    </div>
+                    <h4 className="font-semibold mb-2">Company Registration</h4>
+                    <p className="text-muted-foreground">Register your transport company and get access to verified driver network.</p>
                   </div>
                 </div>
-                
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Experience:</span>
-                    <span className="font-medium">12 years</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Location:</span>
-                    <span className="font-medium">Mumbai, Maharashtra</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Vehicle Types:</span>
-                    <span className="font-medium">Bus, Cargo Truck</span>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Find Drivers</h4>
+                    <p className="text-muted-foreground">Search and connect with professional drivers based on your requirements.</p>
                   </div>
                 </div>
-              </Card>
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Manage Fleet</h4>
+                    <p className="text-muted-foreground">Use our platform to communicate, track, and manage your entire fleet efficiently.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* For Companies Section */}
-      <section className="py-20 bg-muted/50">
+      {/* Testimonials */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <Card className="p-8">
-                <div className="mb-6">
-                  <h3 className="font-bold text-lg mb-4">Subscription Plans</h3>
-                  
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center p-4 border rounded-lg">
-                      <div>
-                        <div className="font-medium">Free Plan</div>
-                        <div className="text-sm text-muted-foreground">10 contacts/month</div>
-                      </div>
-                      <Badge variant="outline">₹0</Badge>
-                    </div>
-                    
-                    <div className="flex justify-between items-center p-4 border rounded-lg bg-blue-50">
-                      <div>
-                        <div className="font-medium">Pro Plan</div>
-                        <div className="text-sm text-muted-foreground">50 contacts + WhatsApp</div>
-                      </div>
-                      <Badge className="bg-blue-500">₹999</Badge>
-                    </div>
-                    
-                    <div className="flex justify-between items-center p-4 border rounded-lg bg-purple-50">
-                      <div>
-                        <div className="font-medium">Premium Plan</div>
-                        <div className="text-sm text-muted-foreground">300 contacts + Direct chat</div>
-                      </div>
-                      <Badge className="bg-purple-500">₹2999</Badge>
-                    </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">What Our Users Say</h2>
+            <p className="text-xl text-muted-foreground">
+              Trusted by thousands of drivers and companies across India
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <CardTitle className="text-lg">Excellent Platform</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  "DriverConnect helped me find consistent work with reputable companies. The verification process gives me confidence in the jobs I take."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Users className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Rajesh Kumar</p>
+                    <p className="text-sm text-muted-foreground">Professional Driver</p>
                   </div>
                 </div>
-              </Card>
-            </div>
-            
-            <div className="order-1 lg:order-2">
-              <Badge variant="outline" className="mb-4">For Companies</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Find the Right Drivers for Your Fleet
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Search, filter, and connect with verified drivers based on your specific requirements. 
-                Choose from flexible subscription plans that fit your business needs.
-              </p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Advanced search and filtering</span>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Verified driver profiles</span>
+                <CardTitle className="text-lg">Game Changer</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  "Finding reliable drivers was always a challenge. DriverConnect's verification system and communication tools have transformed our operations."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Truck className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Priya Sharma</p>
+                    <p className="text-sm text-muted-foreground">ABC Transport Ltd.</p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Direct contact and WhatsApp integration</span>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Rating and review system</span>
+                <CardTitle className="text-lg">Highly Recommended</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  "The platform's safety features and 24/7 support give us peace of mind. Our drivers feel more secure and connected."
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Shield className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">Amit Patel</p>
+                    <p className="text-sm text-muted-foreground">Quick Logistics</p>
+                  </div>
                 </div>
-              </div>
-              
-              <Button size="lg" asChild>
-                <Link href="/auth/signup">
-                  Join as Company
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Join thousands of drivers and companies already using DriverConnect 
-            to build successful partnerships in the transportation industry.
+          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Transportation Business?</h2>
+          <p className="text-xl mb-8 opacity-90">
+            Join thousands of drivers and companies already using DriverConnect to grow their business.
           </p>
-          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6">
+            <Button size="lg" variant="secondary" className="text-lg px-8 py-6" asChild>
               <Link href="/auth/signup">
-                Sign Up Now
+                Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            
-            <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-blue-600">
-              <Link href="/auth/login">
-                Sign In
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+              <Link href="/contact">
+                Contact Sales
+                <Phone className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-muted py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Truck className="h-6 w-6 text-primary" />
+                <span className="font-bold text-xl">DriverConnect</span>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                Connecting professional drivers with transport companies across India.
+              </p>
+              <div className="flex gap-2">
+                <Badge variant="secondary">Trusted</Badge>
+                <Badge variant="secondary">Verified</Badge>
+                <Badge variant="secondary">Secure</Badge>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">For Drivers</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link href="/driver/register" className="hover:text-primary">Register as Driver</Link></li>
+                <li><Link href="/auth/login" className="hover:text-primary">Driver Login</Link></li>
+                <li><Link href="/services" className="hover:text-primary">Find Jobs</Link></li>
+                <li><Link href="/blog" className="hover:text-primary">Driver Resources</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">For Companies</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link href="/company/register" className="hover:text-primary">Register Company</Link></li>
+                <li><Link href="/auth/login" className="hover:text-primary">Company Login</Link></li>
+                <li><Link href="/services" className="hover:text-primary">Find Drivers</Link></li>
+                <li><Link href="/research" className="hover:text-primary">Industry Reports</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link href="/contact" className="hover:text-primary">Contact Us</Link></li>
+                <li><Link href="/news" className="hover:text-primary">News & Updates</Link></li>
+                <li><Link href="/blacklisted-drivers" className="hover:text-primary">Safety Database</Link></li>
+                <li><Link href="/about" className="hover:text-primary">About Us</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
+            <p>&copy; 2025 DriverConnect Technologies Pvt. Ltd. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
