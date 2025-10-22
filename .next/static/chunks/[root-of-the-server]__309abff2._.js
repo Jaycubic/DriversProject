@@ -1482,6 +1482,15 @@ const enTranslation = {
     },
     "nav": {
         "home": "Home",
+        "home.hero.title": "Connect. Drive.",
+        "home.hero.succeed": "Succeed.",
+        "home.hero.subtitle": "India's leading platform connecting professional drivers with transport companies. Join thousands of verified drivers and companies transforming the transportation industry.",
+        "home.hero.registerDriver": "Register as Driver",
+        "home.hero.registerCompany": "Register Company",
+        "home.stats.drivers": "Verified Drivers",
+        "home.stats.companies": "Transport Companies",
+        "home.stats.trips": "Successful Trips",
+        "home.stats.satisfaction": "Satisfaction Rate",
         "dashboard": "Dashboard",
         "profile": "Profile",
         "drivers": "Drivers",
@@ -1651,6 +1660,20 @@ __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$i18next$2f$dist$
     }
 });
 const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$i18next$2f$dist$2f$esm$2f$i18next$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"];
+// Add Hindi translations for home page
+const hiHome = {
+    "home.hero.title": "कनेक्ट करें. ड्राइव करें.",
+    "home.hero.succeed": "सफल हों.",
+    "home.hero.subtitle": "भारत का अग्रणी प्लेटफॉर्म जो पेशेवर ड्राइवरों को परिवहन कंपनियों से जोड़ता है। हजारों सत्यापित ड्राइवरों और कंपनियों में शामिल हों जो परिवहन उद्योग को बदल रहे हैं।",
+    "home.hero.registerDriver": "ड्राइवर के रूप में पंजीकरण करें",
+    "home.hero.registerCompany": "कंपनी पंजीकृत करें",
+    "home.stats.drivers": "सत्यापित ड्राइवर",
+    "home.stats.companies": "परिवहन कंपनियां",
+    "home.stats.trips": "सफल यात्राएं",
+    "home.stats.satisfaction": "संतुष्टि दर"
+};
+// Update i18n resources
+__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$i18next$2f$dist$2f$esm$2f$i18next$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].addResourceBundle('hi', 'translation', hiHome, true, true);
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
